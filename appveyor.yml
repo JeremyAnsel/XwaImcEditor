@@ -1,0 +1,27 @@
+version: 1.0.{build}
+configuration: Release
+
+init:
+- if "%APPVEYOR_REPO_NAME%" == "JeremyAnsel/XwaImcEditor" if "%APPVEYOR_REPO_BRANCH%"=="master" if not defined APPVEYOR_PULL_REQUEST_NUMBER set DEPLOY=True
+
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: 1.0.0
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+
+before_build:
+- nuget restore XwaImcEditor\XwaImcEditor.sln
+
+build:
+  project: XwaImcEditor\XwaImcEditor.sln
+  verbosity: minimal
+
+after_build:
+- XwaImcEditor\build-dist.cmd
+
+artifacts:
+- path: XwaImcEditor\dist
+  name: XwaImcEditor
+  type: zip

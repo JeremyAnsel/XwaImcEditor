@@ -1,0 +1,120 @@
+﻿<Window x:Class="XwaImcEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:XwaImcEditor"
+        Title="Xwa Imc Editor"
+        Height="375"
+        Width="550"
+        UseLayoutRounding="True">
+    <DockPanel>
+        <UniformGrid DockPanel.Dock="Top"
+                     Rows="1">
+            <Button x:Name="NewImcButton"
+                    Content="New"
+                    Click="NewImcButton_Click" />
+            <Button x:Name="OpenImcButton"
+                    Content="Open IMC..."
+                    Click="OpenImcButton_Click" />
+            <Button x:Name="SaveImcButton"
+                    Content="Save IMC..."
+                    Click="SaveImcButton_Click" />
+        </UniformGrid>
+        <TextBlock DockPanel.Dock="Top"
+                   Text="{Binding Model.FileName}" />
+        <UniformGrid DockPanel.Dock="Top"
+                     Rows="1">
+            <Button x:Name="StartPlayerButton"
+                    Content="Play"
+                    Click="StartPlayerButton_Click" />
+            <Button x:Name="StopPlayerButton"
+                    Content="Stop"
+                    Click="StopPlayerButton_Click" />
+            <Button x:Name="ImportWavButton"
+                    Content="Import Wav..."
+                    Click="ImportWavButton_Click" />
+            <Button x:Name="ExportWavButton"
+                    Content="Export Wav..."
+                    Click="ExportWavButton_Click" />
+        </UniformGrid>
+        <DockPanel DockPanel.Dock="Top">
+            <TextBlock DockPanel.Dock="Left">
+                <Run Text="{Binding Model.Player.Position, Mode=OneWay, StringFormat='F1'}" />
+                <Run Text="/" />
+                <Run Text="{Binding Model.Player.Length, Mode=OneWay, StringFormat='F1'}" />
+                <Run />
+            </TextBlock>
+            <ProgressBar Height="20"
+                         Minimum="0"
+                         Maximum="{Binding Model.Player.Length, Mode=OneWay}"
+                         Value="{Binding Model.Player.Position, Mode=OneWay}" />
+        </DockPanel>
+        <UniformGrid DockPanel.Dock="Bottom"
+                     Rows="1">
+            <Button x:Name="ClearMapButton"
+                    Content="Clear Map"
+                    Click="ClearMapButton_Click" />
+            <Button x:Name="NewTextMapButton"
+                    Content="New Text"
+                    Click="NewTextMapButton_Click" />
+            <Button x:Name="NewJumpMapButton"
+                    Content="New Jump"
+                    Click="NewJumpMapButton_Click" />
+            <Button x:Name="RemoveMapButton"
+                    Content="Remove Selected"
+                    Click="RemoveMapButton_Click" />
+        </UniformGrid>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Left"
+                        Width="150">
+                <TextBlock Text="Name:" />
+                <TextBlock Text="{Binding Model.Name}" />
+                <TextBlock Text="Bits Per Sample:" />
+                <TextBlock Text="{Binding Model.BitsPerSample}" />
+                <TextBlock Text="Sample Rate:" />
+                <TextBlock Text="{Binding Model.SampleRate}" />
+                <TextBlock Text="Channels:" />
+                <TextBlock Text="{Binding Model.Channels}" />
+                <TextBlock Text="Length:" />
+                <TextBlock Text="{Binding Model.Length}" />
+                <TextBlock Text="Duration:" />
+                <TextBlock Text="{Binding Model.TimeLength, StringFormat='F2'}" />
+            </StackPanel>
+            <TextBlock DockPanel.Dock="Top"
+                       Text="Map:" />
+            <ListBox x:Name="MapList"
+                     ItemsSource="{Binding Model.Blocks}"
+                     HorizontalContentAlignment="Stretch">
+                <ListBox.Resources>
+                    <DataTemplate DataType="{x:Type local:TextBlock}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Width="70"
+                                     Text="{Binding Position}" />
+                            <TextBlock Width="50"
+                                       Text=" Text: " />
+                            <TextBox Width="200"
+                                     Text="{Binding Text}" />
+                        </StackPanel>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type local:JumpBlock}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Width="70"
+                                     Text="{Binding Position}" />
+                            <TextBlock Width="50"
+                                       Text=" Jump: " />
+                            <TextBox Width="70"
+                                     Text="{Binding Destination}" />
+                            <TextBlock Width="15"
+                                       Text=" I:" />
+                            <TextBox Width="50"
+                                     Text="{Binding Id}" />
+                            <TextBlock Width="15"
+                                       Text=" D:" />
+                            <TextBox Width="50"
+                                     Text="{Binding Delay}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.Resources>
+            </ListBox>
+        </DockPanel>
+    </DockPanel>
+</Window>

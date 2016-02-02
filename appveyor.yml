@@ -23,5 +23,5 @@ after_build:
 
 artifacts:
 - path: XwaImcEditor\dist
-  name: XwaImcEditor
+  name: XwaImcEditor-$(APPVEYOR_BUILD_VERSION)
   type: zip

@@ -41,7 +41,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="JeremyAnsel.Xwa.Imc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c2b3f9a6c3e40b2b, processorArchitecture=MSIL">
-      <HintPath>..\packages\JeremyAnsel.Xwa.Imc.1.0.2\lib\net40\JeremyAnsel.Xwa.Imc.dll</HintPath>
+      <HintPath>..\packages\JeremyAnsel.Xwa.Imc.1.0.3\lib\net40\JeremyAnsel.Xwa.Imc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

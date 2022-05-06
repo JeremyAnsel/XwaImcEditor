@@ -1,6 +1,6 @@
 
-XwaImcEditor runs on Windows 32/64 bits with the .NET framework 4.0.
-(Windows XP, Windows Vista, Windows 7, Windows 8, or superior)
+XwaImcEditor runs on Windows 32/64 bits with the .NET framework 4.8.
+(Windows 7, Windows 8, Windows 10, Windows 11, or superior)
 
-XwaImcPlayer runs on Windows 32/64 bits with the .NET framework 4.0.
-(Windows XP, Windows Vista, Windows 7, Windows 8, or superior)
+XwaImcPlayer runs on Windows 32/64 bits with the .NET framework 4.8.
+(Windows 7, Windows 8, Windows 10, Windows 11, or superior)

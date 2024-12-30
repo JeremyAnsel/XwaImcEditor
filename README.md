@@ -5,3 +5,6 @@
 Xwa Imc Editor is a tool to edit X-Wing Alliance's IMC music files.
 
 See http://www.xwaupgrade.com/phpBB3008/viewtopic.php?f=9&t=11350
+
+![XwaImcEditor](Images/XwaImcEditor.png)
+
